@@ -359,6 +359,82 @@ https://www.coinexchange.io/api/{version}/{method}?param=value
 </tr>
 </tbody></table>
 
+<h2 id="get-currencies">Get Currencies</h2>
+
+<blockquote>
+<p>&#39;getcurrencies&rsquo; JSON return:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="s2">"\/api\/v1\/getcurrencies"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="nt">"result"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="nt">"CurrencyID"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Bitcoin"</span><span class="p">,</span><span class="nt">"TickerCode"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="nt">"WalletStatus"</span><span class="p">:</span><span class="s2">"online"</span><span class="p">,</span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"currency"</span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="nt">"CurrencyID"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Darkcoin"</span><span class="p">,</span><span class="nt">"TickerCode"</span><span class="p">:</span><span class="s2">"DRK"</span><span class="p">,</span><span class="nt">"WalletStatus"</span><span class="p">:</span><span class="s2">"offline"</span><span class="p">,</span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"currency"</span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="nt">"CurrencyID"</span><span class="p">:</span><span class="s2">"3"</span><span class="p">,</span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Ethereum"</span><span class="p">,</span><span class="nt">"TickerCode"</span><span class="p">:</span><span class="s2">"ETH"</span><span class="p">,</span><span class="nt">"WalletStatus"</span><span class="p">:</span><span class="s2">"online"</span><span class="p">,</span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"currency"</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>This endpoint retrieves all enabled currencies / assets.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.coinexchange.io/api/v1/getcurrencies</code></p>
+
+<h2 id="get-currency">Get Currency</h2>
+
+<blockquote>
+<p>&#39;getcurrency&rsquo; returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"request"</span><span class="p">:</span><span class="s2">"\/api\/v1\/getcurrency"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"message"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"result"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"CurrencyID"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Name"</span><span class="p">:</span><span class="s2">"Bitcoin"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"TickerCode"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"WalletStatus"</span><span class="p">:</span><span class="s2">"online"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"Type"</span><span class="p">:</span><span class="s2">"currency"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>This endpoint retrieves information about a single currency / asset.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.coinexchange.io/api/v1/getcurrency?currency_id=1</code></p>
+
+<p>or</p>
+
+<p><code class="prettyprint">GET https://www.coinexchange.io/api/v1/getcurrency?ticker_code=BTC</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency_id</td>
+<td>integer</td>
+<td>Determines the currency to be returned by id</td>
+</tr>
+<tr>
+<td>ticker_code</td>
+<td>string</td>
+<td>Dtermines the currency to be returned by ticker code</td>
+</tr>
+</tbody></table>
+
+<p>One but not both of the above two parameters must be used</p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
