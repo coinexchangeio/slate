@@ -247,6 +247,74 @@ market_id | string | Determines which market summary data is returned, can be ob
 
 
 
+## Get Currencies
+
+> 'getcurrencies' JSON return:
+
+```json
+{
+	"success":"1",
+	"request":"\/api\/v1\/getcurrencies",
+	"message":"","result": [
+		{"CurrencyID":"1","Name":"Bitcoin","TickerCode":"BTC","WalletStatus":"online","Type":"currency"},
+		{"CurrencyID":"2","Name":"Darkcoin","TickerCode":"DRK","WalletStatus":"offline","Type":"currency"},
+		{"CurrencyID":"3","Name":"Ethereum","TickerCode":"ETH","WalletStatus":"online","Type":"currency"}
+	]
+}
+
+```
+
+This endpoint retrieves all enabled currencies / assets.
+
+### HTTP Request
+
+`GET https://www.coinexchange.io/api/v1/getcurrencies`
+
+
+
+## Get Currency
+
+> 'getcurrency' returns JSON structured like this:
+
+```json
+{
+	"success":"1",
+	"request":"\/api\/v1\/getcurrency",
+	"message":"",
+	"result":{
+		"CurrencyID":"1",
+		"Name":"Bitcoin",
+		"TickerCode":"BTC",
+		"WalletStatus":"online",
+		"Type":"currency"
+	}
+}
+
+```
+
+This endpoint retrieves information about a single currency / asset.
+
+### HTTP Request
+
+`GET https://www.coinexchange.io/api/v1/getcurrency?currency_id=1`
+
+or
+
+`GET https://www.coinexchange.io/api/v1/getcurrency?ticker_code=BTC`
+
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+currency_id | integer | Determines the currency to be returned by id
+ticker_code | string | Dtermines the currency to be returned by ticker code
+
+One but not both of the above two parameters must be used
+
+
+
+
 
 
 
